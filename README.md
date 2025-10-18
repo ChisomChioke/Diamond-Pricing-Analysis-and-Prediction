@@ -1,7 +1,7 @@
-## Diamond Pricing Analysis and Prediction
+# Diamond Pricing Analysis and Prediction
 ![Diamond Header](diamond_clarity_analysis.png)
 
-### Introduction
+## Introduction
 
 ---
 
