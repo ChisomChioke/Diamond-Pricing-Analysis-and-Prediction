@@ -1,5 +1,5 @@
 # Diamond Pricing Analysis and Prediction
-![Diamond Header](diamond_clarity_analysis.png)
+![Diamond Header](images/diamond_clarity_analysis.png)
 
 ## Introduction
 _As a Data Analyst, my objective in this project is to assist an online jewelry retailer in developing a more efficient approach to pricing newly acquired diamonds. With thousands of diamonds requiring pricing each day, the company is seeking a cost-effective and scalable pricing model that can support experts in making fast and consistent pricing decisions._
