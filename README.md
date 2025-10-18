@@ -2,9 +2,6 @@
 ![Diamond Header](diamond_clarity_analysis.png)
 
 ## Introduction
-
----
-
 _As a Data Analyst, my objective in this project is to assist an online jewelry retailer in developing a more efficient approach to pricing newly acquired diamonds. With thousands of diamonds requiring pricing each day, the company is seeking a cost-effective and scalable pricing model that can support experts in making fast and consistent pricing decisions._
 
 _To achieve this, I am working with a dataset of historical diamond sales to uncover pricing patterns and build a predictive model. The goal is to estimate prices accurately based on key diamond features such as carat, cut, color, and clarity. By automating the initial price estimation process, this model enables pricing specialists to work more efficiently&ndash;reducing manual effort while maintaining accuracy and speed in daily operations._
