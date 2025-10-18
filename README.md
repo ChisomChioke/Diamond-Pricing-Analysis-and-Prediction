@@ -1,5 +1,5 @@
 # Diamond Pricing Analysis and Prediction
-![Diamond Header](images/diamond_clarity_analysis.png)
+![Home Page](images/diamond_clarity_analysis.png)
 
 ## Introduction
 _As a Data Analyst, my objective in this project is to assist an online jewelry retailer in developing a more efficient approach to pricing newly acquired diamonds. With thousands of diamonds requiring pricing each day, the company is seeking a cost-effective and scalable pricing model that can support experts in making fast and consistent pricing decisions._
@@ -22,3 +22,8 @@ The features in the dataset include:
 | `x`       | Length of the diamond when viewed face-up                                           |  
 | `y`       | Width of the diamond when viewed face-up                                            |
 | `z`       | Height of the diamond when standing on its point.                                   |
+
+## Exploratory Analysis
+![Home Page](images/describe_diamond.png)
++ Initial exploratory analysis reveals that the dataset contains almost 54,000 rows, which is an excellent amount of data to work with to create an accurate estimate of the population of diamonds.
++ The mean price is approximately `$4,000` and the largest diamond weighs around 5 carats, which is considered quite large. This may correspond to the diamond priced at `$18,000`.
