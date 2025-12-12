@@ -1,0 +1,15 @@
+# Core Data Analysis
+pandas>=1.5.0
+numpy>=1.24.0
+
+# Statistical Modeling
+statsmodels>=0.14.0
+scikit-learn>=1.2.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Development
+jupyter>=1.0.0
