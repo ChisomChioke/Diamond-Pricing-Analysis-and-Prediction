@@ -6,7 +6,9 @@
 [![Dependencies](https://img.shields.io/badge/Dependencies-requirements.txt-green.svg)](https://github.com/ChisomChioke/Diamond-Pricing-Analysis-and-Prediction/blob/main/requirements.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ChisomChioke/Diamond-Pricing-Analysis-and-Prediction/blob/main/LICENSE)
 ![Status](https://img.shields.io/badge/Status-Complete-success.svg)
+
 ---
+
 **Automated baseline pricing for jewelry retail using Multiple Linear Regression| R² = 0.928, MAE = $696**
 
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
