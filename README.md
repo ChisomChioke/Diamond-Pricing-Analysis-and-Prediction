@@ -50,8 +50,6 @@ Automated baseline pricing for typical consumer diamonds (0.5-2.5 carats, $2.5K-
 | **Cut (Ideal → Fair)** | +$643 to +$911 | Premium for ideal cut |
 
 ### Model Performance
-
-![Model Performance](images/predicted_vs_actual_prices.png)
 ```
 Overall Metrics:
 ├── R² (Test): 0.928
@@ -66,6 +64,7 @@ Performance by Price Range:
 ├── $5K-10K:  MAPE = 12.2% ← Optimal range
 └── >$10K:    MAPE = 14.0% (sparse training data)
 ```
+![Model Performance](images/predicted_vs_actual_prices.png)
 
 ---
 
