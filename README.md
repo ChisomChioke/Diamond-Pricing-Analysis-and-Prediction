@@ -39,7 +39,7 @@ with gemological standards.
 
 ### Simpson's Paradox Visualization
 
-![Simpson's Paradox](images/simpsons_paradox.png)
+![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 
 *Univariate analysis (left) incorrectly suggests worse color commands premium prices, but 
 controlling for carat weight (right) reveals colorless (D) diamonds command highest prices 
