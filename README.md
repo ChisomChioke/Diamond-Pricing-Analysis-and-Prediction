@@ -13,6 +13,9 @@
 
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 
+*Simpson's Paradox in diamond color grading: univariate analysis (left) incorrectly suggests worse color (more yellowed) commands premium prices, but 
+controlling for carat weight (right) reveals the expected pattern — less yellowed (D) diamonds command highest prices within each size category.*
+
 ## 📊 Project Overview
 
 This project develops an automated diamond pricing model using multiple linear regression to 
@@ -47,9 +50,7 @@ with gemological standards.
 
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 
-*Univariate analysis (left) incorrectly suggests worse color commands premium prices, but 
-controlling for carat weight (right) reveals colorless (D) diamonds command highest prices 
-within each size category.*
+
 
 ### Price Drivers
 
