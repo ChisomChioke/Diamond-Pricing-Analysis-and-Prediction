@@ -1,5 +1,4 @@
 # Diamond Pricing Optimization Model
-**Automated Pricing Assistant for Jewelry Retail**
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://github.com/ChisomChioke/Diamond-Pricing-Analysis-and-Prediction/blob/main/Diamond_Pricing_Analysis_and_Prediction.ipynb)
@@ -9,6 +8,10 @@
 ![Status](https://img.shields.io/badge/Status-Complete-success.svg)
 
 ---
+
+**Automated baseline pricing for jewelry retail using Multiple Linear Regression| R² = 0.928, MAE = $696**
+
+![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 
 ## 📊 Project Overview
 
