@@ -18,29 +18,17 @@ controlling for carat weight (right) reveals the expected pattern — less yello
 
 ## 📊 Project Overview
 
-This project develops an automated diamond pricing model using multiple linear regression to 
-provide baseline price estimates for jewelry retailers. The model achieves **R² = 0.928** 
-with **MAE = $696** (18% of mean price) across 53,921 diamonds, enabling significant reduction 
-in manual pricing workload while maintaining accuracy within business tolerances.
+This project develops an automated diamond pricing model using multiple linear regression to provide baseline price estimates for jewelry retailers. The model achieves **R² = 0.928** with **MAE = $696** (18% of mean price) across 53,921 diamonds, enabling significant reduction in manual pricing workload while maintaining accuracy within business tolerances.
 
 ### Key Achievement: Simpson's Paradox Discovery
 
-All three quality features (cut, color, clarity) exhibited counterintuitive univariate 
-relationships with price—worse quality appeared MORE expensive. Investigation revealed **carat 
-weight confounding**: lower-quality diamonds are substantially larger (e.g., J-color stones 
-are 77% heavier than D-color stones), inflating aggregate prices despite inferior quality. 
-Multivariate regression controlling for carat reversed all relationships, aligning coefficients 
-with gemological standards.
+All three quality features (cut, color, clarity) exhibited counterintuitive univariate relationships with price—worse quality appeared MORE expensive. Investigation revealed **carat weight confounding**: lower-quality diamonds are substantially larger (e.g., J-color stones are 77% heavier than D-color stones), inflating aggregate prices despite inferior quality. Multivariate regression controlling for carat reversed all relationships, aligning coefficients with gemological standards.
 
 ---
 
 ## 🎯 Business Impact
 
-- **Automated Pricing**: Handles baseline pricing for typical consumer diamonds (0.5-2.5 carats)
-- **Optimal Performance**: $2,500-10,000 segment (40% of test set) achieves MAPE = 12-21%
-- **Smart Escalation**: Flags premium stones (>$10K) and very small diamonds (<$1K) for expert review
-- **Transparency**: Interpretable coefficients maintain pricing transparency for stakeholders
-- **Efficiency**: Significantly reduces manual pricing workload for routine inventory
+Automated baseline pricing for typical consumer diamonds (0.5-2.5 carats, $2.5K-10K segemnt, representing 40% of test set with MAPE = 12-21%. Model Flags premium stones (>$10K) and very small diamonds (<$1K) for expert review while significantly reducing manual pricing workload for routine inventory. Interpretable coefficients maintain pricing transparency for stakeholders.
 
 ---
 
@@ -62,6 +50,8 @@ with gemological standards.
 | **Cut (Ideal → Fair)** | +$643 to +$911 | Premium for ideal cut |
 
 ### Model Performance
+
+![Model Performance](images/predicted_vs_actual_prices.png)
 ```
 Overall Metrics:
 ├── R² (Test): 0.928
