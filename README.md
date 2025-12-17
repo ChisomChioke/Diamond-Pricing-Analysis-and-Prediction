@@ -28,7 +28,7 @@ All three quality features (cut, color, clarity) exhibited counterintuitive univ
 
 ## 🎯 Business Impact
 
-Automated baseline pricing for typical consumer diamonds (0.5-2.5 carats, $2.5K-10K segemnt, representing 40% of test set with MAPE = 12-21%. Model Flags premium stones (>$10K) and very small diamonds (<$1K) for expert review while significantly reducing manual pricing workload for routine inventory. Interpretable coefficients maintain pricing transparency for stakeholders.
+Automated baseline pricing for typical consumer diamonds (0.5-2.5 carats, $2.5K-10K segment), representing 40% of test set with MAPE = 12-21%. Model Flags premium stones (>$10K) and very small diamonds (<$1K) for expert review while significantly reducing manual pricing workload for routine inventory. Interpretable coefficients maintain pricing transparency for stakeholders.
 
 ---
 
@@ -37,8 +37,6 @@ Automated baseline pricing for typical consumer diamonds (0.5-2.5 carats, $2.5K-
 ### Simpson's Paradox Visualization
 
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
-
-
 
 ### Price Drivers
 
