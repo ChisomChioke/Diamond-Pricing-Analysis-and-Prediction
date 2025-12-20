@@ -22,7 +22,7 @@ This project develops an automated diamond pricing model using multiple linear r
 
 ### Key Achievement: Simpson's Paradox Discovery
 
-All three quality features (cut, color, clarity) exhibited counterintuitive univariate relationships with price—worse quality appeared MORE expensive. Investigation revealed **carat weight confounding**: lower-quality diamonds are substantially larger (e.g., J-color stones are 77% heavier than D-color stones), inflating aggregate prices despite inferior quality. Multivariate regression controlling for carat reversed all relationships, aligning coefficients with gemological standards.
+All three quality features (cut, color, clarity) exhibited counterintuitive univariate relationships with price—worse quality appeared more expensive. Investigation revealed **carat weight confounding**: lower-quality diamonds are substantially larger (e.g., J-color stones are 77% heavier than D-color stones), inflating aggregate prices despite inferior quality. Multivariate regression controlling for carat reversed all relationships, aligning coefficients with gemological standards.
 
 ---
 
