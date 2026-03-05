@@ -97,7 +97,7 @@ The analysis follows a four-phase methodology designed to mirror professional mo
 
 ### Key Findings
 
-**1. Simpson's Paradox Across All Quality Dimensions**
+### 1. Simpson's Paradox Across All Quality Dimensions
 
 Raw aggregate analysis suggested worse quality diamonds commanded premium prices:
 
@@ -116,14 +116,15 @@ Raw aggregate analysis suggested worse quality diamonds commanded premium prices
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 _Figure 1: Simpson's Paradox resolved. Univariate analysis (left) incorrectly suggests worse color commands premium prices, but controlling for carat weight (right) reveals colorless (D) diamonds command highest prices within each size category. Similar patterns observed across cut and clarity._
 
-### Price Drivers
+---
 
-| Feature | Impact | Interpretation |
-|---------|--------|----------------|
-| **Carat** | +$8,923 per carat | Dominates pricing (85% of variance) |
-| **Clarity (IF → I1)** | +$5,424 premium | Flawless vs heavily included |
-| **Color (D → J)** | -$220 to -$2,308 | Colorless vs yellow penalty |
-| **Cut (Ideal → Fair)** | +$643 to +$911 | Premium for ideal cut |
+### 2. Carat Dominates Pricing
+
+| Feature     | Impact     | Variance Interpretation |
+|---------    |--------    |----------------    |
+| **Carat alone**   | +$7,787 per carat | 85% of variance (baseline model) |
+| **Carat (full model)** | +$8,923 per carat | Coefficient increased after controlling for quality |
+| **All quality features** | Combined | +7.8% (incremental over carat-only) |
 
 ### Model Performance
 ```
