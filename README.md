@@ -61,7 +61,7 @@ Retailers need scalable automation that maintains interpretability for stakehold
 - **Cut:** Quality grade (Fair → Good → Very Good → Premium → Ideal)
 - **Color:** D (colorless, best) → J (yellow, worst)
 - **Clarity:** IF (flawless) → I1 (heavily included)
-- **Dimensions: Length (x), width (y), depth (z), depth (%), table (%)
+- **Dimensions:** Length (x), width (y), depth (z), depth (%), table (%)
 - **Price:** US dollars (range: $326 - $18,823)
 
 ### Data Preparation:
