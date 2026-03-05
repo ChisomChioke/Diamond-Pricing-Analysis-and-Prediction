@@ -63,10 +63,12 @@ Retailers need scalable automation that maintains interpretability for stakehold
 - **Dimensions:** Length (x), width (y), depth (z), depth (%), table (%)
 - **Price:** US dollars (range: $326 - $18,823)
 
+![Distribution of Diamond Prices](images/distribution_of_diamond_prices.png)
+
 #### Data Preparation:
 
-- Ordinal encoding for categorical quality features (maintains natural ordering)
-- Train-test split: 80/20 stratified by price distribution
+- One-hot encoding for cut/color/clarity using reference categories (e.g., Fair / D / I1 as baselines)
+- Train-test split: 80/20 train-test split with reproducible random seed
 - No transformations applied (Linear relationships preserved. Log transformation degraded performance)
 
 ## Analytical Approach
@@ -152,7 +154,7 @@ Once carat is controlled, quality attributes show expected gemological relations
 | **R² (Test)**  | 0.928 (93% of variance explained) |
 | **MAE**        | $696 (18% of mean price) |
 | **RMSE**       | $1,052 |
-| **Overfitting Check** | Train R² (0.916) ≈ Test R² (0.915) |
+| **Overfitting Check** | Train R² 0.916 ≈ Test R² 0.915 (pre-clip) |
 
 ![Model Performance](images/predicted_vs_actual_prices.png)
 _Figure 2: Tight clustering around perfect prediction line (R² = 0.928, MAE = $696) with no systematic bias confirms model reliability across price ranges. Points distribute evenly above/below diagonal, validating production readiness._
