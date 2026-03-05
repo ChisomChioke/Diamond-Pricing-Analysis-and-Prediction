@@ -7,8 +7,9 @@
 
 # Diamond Pricing Optimization Model
 
-### Automated Baseline Pricing for Jewelry Retail Using Multiple Linear Regression| R² = 0.928, MAE = $696
+## Automated Baseline Pricing for Jewelry Retail Using Multiple Linear Regression| R² = 0.928, MAE = $696
 
+#### Key Finding: Simpson's Paradox
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 
 _Simpson's Paradox in diamond color grading: univariate analysis (left) incorrectly suggests worse color (more yellowed) commands premium prices, but 
@@ -32,25 +33,88 @@ controlling for carat weight (right) reveals the expected pattern — less yello
 
 Jewelry retailers face thousands of daily pricing decisions, relying on expert judgment that doesn't scale efficiently. Using **53,921 diamonds**, I built a multiple linear regression model achieving **R² = 0.928 and MAE = $696** (18% of mean price) that automates baseline pricing for **40% of inventory** while flagging edge cases for expert review—reducing manual workload without sacrificing interpretability.
 
-This project develops an automated diamond pricing model using multiple linear regression to provide baseline price estimates for jewelry retailers. The model achieves **R² = 0.928** with **MAE = $696** (18% of mean price) across 53,921 diamonds, enabling significant reduction in manual pricing workload while maintaining accuracy within business tolerances.
-
-### Key Achievement: Simpson's Paradox Discovery
-
-All three quality features (cut, color, clarity) exhibited counterintuitive univariate relationships with price—worse quality appeared more expensive. Investigation revealed **carat weight confounding**: lower-quality diamonds are substantially larger (e.g., J-color stones are 77% heavier than D-color stones), inflating aggregate prices despite inferior quality. Multivariate regression controlling for carat reversed all relationships, aligning coefficients with gemological standards.
-
----
+All code, data processing steps, and detailed methodology can be found here: [GitHub Repository Link](https://github.com/ChisomChioke/Diamond-Pricing-Analysis-and-Prediction/blob/main/Diamond_Pricing_Analysis_and_Prediction.ipynb), and a one-page summary is provided in this document: [One-Page Summary](https://drive.google.com/file/d/1f_iZ4K2Dx05scYHZ5-SS6CZlK0jjwA4q/view)
 
 ## Business Problem
 
-Automated baseline pricing for typical consumer diamonds (0.5-2.5 carats, $2.5K-10K segment), representing 40% of test set with MAPE = 12-21%. Model Flags premium stones (>$10K) and very small diamonds (<$1K) for expert review while significantly reducing manual pricing workload for routine inventory. Interpretable coefficients maintain pricing transparency for stakeholders.
+Manual diamond pricing is time-intensive, inconsistent across specialists, and vulnerable to human error. Raw quality metrics exhibit counterintuitive patterns (worse quality diamonds appearing more expensive), making naive pricing rules unreliable.
 
----
+**Challenges:**
 
-## Key Findings
+1. How can we scale pricing decisions from expert judgment to thousands of diamonds per day?
+2. Why do lower-quality diamonds sometimes appear more expensive than premium stones?
+3. Which attributes truly drive diamond value when confounding variables are controlled?
 
-### Simpson's Paradox Visualization
+Retailers need scalable automation that maintains interpretability for stakeholder trust while handling routine diamonds efficiently.
+
+## Data Overview
+
+**Dataset:** [Kaggle Diamonds Dataset](https://www.kaggle.com/datasets/shivam2503/diamonds)
+**Coverage:** 53,921 diamonds | 10 features (carat, cut, color, clarity, dimensions, price)
+**After cleaning:** 53,921 valid records (removed 20 with impossible zero dimensions)
+
+### Key Features:
+
+- **Carat:** Weight in metric carats (1 carat = 0.2 grams)
+- **Cut:** Quality grade (Fair → Good → Very Good → Premium → Ideal)
+- **Color:** D (colorless, best) → J (yellow, worst)
+- **Clarity:** IF (flawless) → I1 (heavily included)
+- **Dimensions: Length (x), width (y), depth (z), depth (%), table (%)
+- **Price:** US dollars (range: $326 - $18,823)
+
+### Data Preparation:
+
+- Ordinal encoding for categorical quality features (maintains natural ordering)
+- Train-test split: 80/20 stratified by price distribution
+- No transformations applied (linear relationships preserved)
+
+## Analytical Approach
+
+The analysis follows a four-phase methodology designed to mirror professional model development:
+
+### Phase 1: Exploratory Data Analysis
+- Distribution analysis and outlier detection
+- Correlation study identifying carat as dominant driver (r = 0.92)
+- **Simpson's Paradox discovery:** All quality features showed counterintuitive univariate patterns (worse quality → higher prices) due to carat weight confounding
+
+### Phase 2: Baseline Model Development
+- **Carat-only model:** R² = 0.850, MAE = $996
+- Established performance floor and validated carat dominance
+- Identified model limitation: negative intercept causing invalid predictions for small diamonds
+
+### Phase 3: Full Model Development
+- **20-feature OLS regression:** Carat + quality dimensions (cut, color, clarity) + physical dimensions
+- R² = 0.928 (+7.7%), MAE = $696 (-30.1% error reduction)
+- Coefficient interpretation aligned with gemological standards after controlling for carat
+
+### Phase 4: Production Readiness
+- **Problem:** 9.5% of predictions negative (physically invalid)
+- **Evaluated:** Log transformation (elegant) → **R² = -8.3** (catastrophic failure)
+- **Implemented:** Predictive clipping to $326 minimum → **Improved MAE by 13%**
+- Performance segmentation across price ranges to identify automation vs. review zones
+
+## Executive Summary of Results
+
+### Key Findings
+
+**1. Simpson's Paradox Across All Quality Dimensions**
+
+Raw aggregate analysis suggested worse quality diamonds commanded premium prices:
+
+- **Fair cuts:** $4,359 avg vs. Ideal: $3,457 avg
+- **J-color:** $5,324 avg vs. D-color: $3,168 avg
+- **SI2 clarity:** $5,060 avg vs. IF: $2,865 avg
+
+**Root cause:** Lower-quality diamonds are substantially larger on average:
+
+- **Fair cuts:** 1.05 carats vs. Ideal: 0.70 carats (50% larger)
+- **J-color:** 1.16 carats vs. D-color: 0.66 carats (77% larger)
+- **I1 clarity:** 1.28 carats vs. IF: 0.51 carats (151% larger)
+
+**Resolution:** Multivariate regression controlling for carat reversed all relationships, aligning coefficients with gemological standards.
 
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
+_Figure 1: Simpson's Paradox resolved. Univariate analysis (left) incorrectly suggests worse color commands premium prices, but controlling for carat weight (right) reveals colorless (D) diamonds command highest prices within each size category. Similar patterns observed across cut and clarity._
 
 ### Price Drivers
 
