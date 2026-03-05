@@ -15,8 +15,8 @@ _Simpson's Paradox in diamond color grading: univariate analysis (left) incorrec
 controlling for carat weight (right) reveals the expected pattern — less yellowed diamonds command highest prices within each size category._
 
 ## Table of Contents
-- [Project Background](#project-background)
-- [Business Objective](#business-objective)
+- [Project Overview](#project-overview)
+- [Business Problem](#business-problem)
 - [Data Overview](#data-overview)
 - [Analytical Approach](#analytical-approach)
 - [Executive Summary of Results](#executive-summary-of-results)
@@ -28,8 +28,9 @@ controlling for carat weight (right) reveals the expected pattern — less yello
 - [Future Work](#future-work)
 - [Technologies Used](#technologies-used)
 
-
 ## Project Overview
+
+Jewelry retailers face thousands of daily pricing decisions, relying on expert judgment that doesn't scale efficiently. Using **53,921 diamonds**, I built a multiple linear regression model achieving **R² = 0.928 and MAE = $696** (18% of mean price) that automates baseline pricing for **40% of inventory** while flagging edge cases for expert review—reducing manual workload without sacrificing interpretability.
 
 This project develops an automated diamond pricing model using multiple linear regression to provide baseline price estimates for jewelry retailers. The model achieves **R² = 0.928** with **MAE = $696** (18% of mean price) across 53,921 diamonds, enabling significant reduction in manual pricing workload while maintaining accuracy within business tolerances.
 
@@ -39,13 +40,13 @@ All three quality features (cut, color, clarity) exhibited counterintuitive univ
 
 ---
 
-## 🎯 Business Impact
+## Business Problem
 
 Automated baseline pricing for typical consumer diamonds (0.5-2.5 carats, $2.5K-10K segment), representing 40% of test set with MAPE = 12-21%. Model Flags premium stones (>$10K) and very small diamonds (<$1K) for expert review while significantly reducing manual pricing workload for routine inventory. Interpretable coefficients maintain pricing transparency for stakeholders.
 
 ---
 
-## 📈 Key Findings
+## Key Findings
 
 ### Simpson's Paradox Visualization
 
