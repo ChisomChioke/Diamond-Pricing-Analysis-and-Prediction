@@ -32,17 +32,6 @@ controlling for carat weight (right) reveals the expected pattern — less yello
 
 Jewelry retailers face thousands of daily pricing decisions, relying on expert judgment that doesn't scale efficiently. Using **53,921 diamonds**, I built a multiple linear regression model achieving **R² = 0.928 and MAE = $696** (18% of mean price) that automates baseline pricing for **40% of inventory** while flagging edge cases for expert review—reducing manual workload without sacrificing interpretability.
 
-### Model Inputs
-- carat
-- cut
-- color
-- clarity
-- depth
-- table
-
-### Model Output
-Predicted diamond price ($) with automatic clipping at $326 to ensure valid predictions.
-
 All code, data processing steps, and detailed methodology can be found here: [GitHub Repository Link](https://github.com/ChisomChioke/Diamond-Pricing-Analysis-and-Prediction/blob/main/Diamond_Pricing_Analysis_and_Prediction.ipynb), and a one-page summary is provided in this document: [One-Page Summary](https://drive.google.com/file/d/1f_iZ4K2Dx05scYHZ5-SS6CZlK0jjwA4q/view)
 
 ## Business Problem
