@@ -7,7 +7,7 @@
 
 # Diamond Pricing Optimization Model
 
-## Automated Baseline Pricing for Jewelry Retail Using Multiple Linear Regression| R² = 0.928, MAE = $696
+## Automated Baseline Pricing for Jewelry Retail Using Multiple Linear Regression | R² = 0.928, MAE = $696
 
 #### Major Finding: Simpson's Paradox
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
@@ -31,6 +31,17 @@ controlling for carat weight (right) reveals the expected pattern — less yello
 ## Project Overview
 
 Jewelry retailers face thousands of daily pricing decisions, relying on expert judgment that doesn't scale efficiently. Using **53,921 diamonds**, I built a multiple linear regression model achieving **R² = 0.928 and MAE = $696** (18% of mean price) that automates baseline pricing for **40% of inventory** while flagging edge cases for expert review—reducing manual workload without sacrificing interpretability.
+
+### Model Inputs
+- carat
+- cut
+- color
+- clarity
+- depth
+- table
+
+### Model Output
+Predicted diamond price ($) with automatic clipping at $326 to ensure valid predictions.
 
 All code, data processing steps, and detailed methodology can be found here: [GitHub Repository Link](https://github.com/ChisomChioke/Diamond-Pricing-Analysis-and-Prediction/blob/main/Diamond_Pricing_Analysis_and_Prediction.ipynb), and a one-page summary is provided in this document: [One-Page Summary](https://drive.google.com/file/d/1f_iZ4K2Dx05scYHZ5-SS6CZlK0jjwA4q/view)
 
@@ -64,12 +75,13 @@ Retailers need scalable automation that maintains interpretability for stakehold
 - **Price:** US dollars (range: $326 - $18,823)
 
 ![Distribution of Diamond Prices](images/distribution_of_diamond_prices.png)
+_Figure 1. Distribution of diamond prices. Prices are heavily right-skewed: most diamonds fall below $5,000, with a long tail reaching $20,000+. The mean ($3,933) exceeds the median ($2,401) by 64%, showing that rare high-value outliers pull the average upward._
 
 #### Data Preparation:
 
 - One-hot encoding for cut/color/clarity using reference categories (e.g., Fair / D / I1 as baselines)
-- Train-test split: 80/20 train-test split with reproducible random seed
-- No transformations applied (Linear relationships preserved. Log transformation degraded performance)
+- Train-test split: 80/20 with reproducible random seed
+- No transformations applied. Log(price) was evaluated but degraded performance due to exponential error amplification.
 
 ## Analytical Approach
 
@@ -77,7 +89,7 @@ The analysis follows a four-phase methodology designed to mirror professional mo
 
 #### Phase 1: Exploratory Data Analysis
 - Distribution analysis and outlier detection
-- Correlation study identifying carat as dominant driver (r = 0.92)
+- Correlation study identifying carat as dominant price driver (r = 0.92)
 - **Simpson's Paradox discovery:** All quality features showed counterintuitive univariate patterns (worse quality → higher prices) due to carat weight confounding
 
 #### Phase 2: Baseline Model Development
@@ -86,7 +98,7 @@ The analysis follows a four-phase methodology designed to mirror professional mo
 - Identified model limitation: negative intercept causing invalid predictions for small diamonds
 
 #### Phase 3: Full Model Development
-- **20-feature OLS regression:** Carat + quality dimensions (cut, color, clarity) + physical dimensions
+- **20-feature OLS regression:** Carat + quality dimensions (cut, color, clarity) + depth + table
 - R² = 0.928 (+7.7%), MAE = $696 (-30.1% error reduction)
 - Coefficient interpretation aligned with gemological standards after controlling for carat
 
@@ -117,7 +129,7 @@ Raw aggregate analysis suggested worse quality diamonds commanded premium prices
 **Resolution:** Multivariate regression controlling for carat reversed all relationships, aligning coefficients with gemological standards.
 
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
-_Figure 1: Simpson's Paradox resolved. Univariate analysis (left) incorrectly suggests worse color commands premium prices, but controlling for carat weight (right) reveals colorless (D) diamonds command highest prices within each size category. Similar patterns observed across cut and clarity._
+_Figure 2: Simpson's Paradox resolved. Univariate analysis (left) incorrectly suggests worse color commands premium prices, but controlling for carat weight (right) reveals colorless (D) diamonds command highest prices within each size category. Similar patterns observed across cut and clarity._
 
 ---
 
@@ -157,11 +169,11 @@ Once carat is controlled, quality attributes show expected gemological relations
 | **Overfitting Check** | Train R² 0.916 ≈ Test R² 0.915 (pre-clip) |
 
 ![Model Performance](images/predicted_vs_actual_prices.png)
-_Figure 2: Tight clustering around perfect prediction line (R² = 0.928, MAE = $696) with no systematic bias confirms model reliability across price ranges. Points distribute evenly above/below diagonal, validating production readiness._
+_Figure 3: Tight clustering around perfect prediction line (R² = 0.928, MAE = $696) with no systematic bias confirms model reliability across price ranges. Points distribute evenly above/below diagonal, validating production readiness._
 
 #### Residual Diagnostics (4-Panel Analysis)
 ![Residual Diagnostics](images/residual_diagnostics.png)
-_Figure 3: Residual diagnostics confirm model validity: (1) Random scatter around zero = linearity satisfied, (2) Q-Q plot shows approximately normal residuals, (3) Mild heteroscedasticity at higher prices—acceptable for production, (4) Residuals centered at $0 with no systematic bias._
+_Figure 4: Residual diagnostics confirm model validity: (1) Random scatter around zero = linearity satisfied, (2) Q-Q plot shows approximately normal residuals, (3) Mild heteroscedasticity at higher prices—acceptable for production, (4) Residuals centered at $0 with no systematic bias._
 
 ---
 
@@ -169,7 +181,7 @@ _Figure 3: Residual diagnostics confirm model validity: (1) Random scatter aroun
 
 Segmentation analysis reveals optimal automation zones:
 
-| **Price Range** | **Test Count** | **MAE ($)** | **MAPE ($)**| **Recommendation**|
+| **Price Range** | **Test Count** | **MAE ($)** | **MAPE (%)**| **Recommendation**|
 |---------    |--------    |------------- |---------| --------- |
 | <$1K        |   2,943 (27%)    |    278      |   38.3%     |   Expert review (Clipping effects) |
 | $1K – 2.5K  |  2,539 (24%)     |   532       |  33.5%      |  Acceptable for baseline pricing (Moderation automation) |
