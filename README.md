@@ -158,6 +158,10 @@ Once carat is controlled, quality attributes show expected gemological relations
 ![Model Performance](images/predicted_vs_actual_prices.png)
 _Figure 2: Tight clustering around perfect prediction line (R² = 0.928, MAE = $696) with no systematic bias confirms model reliability across price ranges. Points distribute evenly above/below diagonal, validating production readiness._
 
+#### Residual Diagnostics (4-Panel Analysis)
+![Residual Diagnostics](images/residual_diagnostics.png)
+_Figure 3: Residual diagnostics confirm model validity: (1) Random scatter around zero = linearity satisfied, (2) Q-Q plot shows approximately normal residuals, (3) Mild heteroscedasticity at higher prices—acceptable for production, (4) Residuals centered at $0 with no systematic bias._
+
 ```
 Overall Metrics:
 ├── R² (Test): 0.928
@@ -218,8 +222,7 @@ Full Model (All Features):
 
 ### 5. Model Validation
 
-#### Residual Diagnostics (4-Panel Analysis)
-![Residual Diagnostics](images/residual_diagnostics.png)
+
 
 - **Residuals vs Fitted**: Slight heteroscedasticity at extremes (expected for price data)
 - **Q-Q Plot**: Approximately normal distribution with minor heavy tails
