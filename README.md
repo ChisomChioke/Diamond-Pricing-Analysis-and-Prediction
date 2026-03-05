@@ -223,7 +223,7 @@ This project demonstrates:
 The model successfully balances **92.8% accuracy** with **interpretable coefficients**, handling **85.6% of diamonds automatically** while escalating edge cases to human experts—demonstrating a complete ML workflow from EDA through production deployment.
 
 ## Limitations & Future Work
-#### Current Limitations
+#### Current Limitations:
 
 **1. Linearity Assumptions:** Model assumes constant marginal value per carat. Residuals suggest nonlinear relationships at extremes. Log transformation degraded performance (R² = -8.3) due to error amplification.
 
@@ -235,7 +235,7 @@ The model successfully balances **92.8% accuracy** with **interpretable coeffici
 
 **5. Clipping Artifacts:** 14.4% of predictions required clipping, particularly affecting <$1K segment (MAPE = 38.3%). Manual review appropriate for these edge cases.
 
-#### Future Enhancements
+#### Future Enhancements:
 **1. Advanced Modeling:**
 - Polynomial features (carat²) to capture nonlinear size-value relationship
 - Interaction terms (carat × clarity, cut × color) for premium combinations
