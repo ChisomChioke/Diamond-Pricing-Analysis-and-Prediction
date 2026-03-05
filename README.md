@@ -9,14 +9,14 @@
 
 ---
 
-**Automated baseline pricing for jewelry retail using Multiple Linear Regression| R² = 0.928, MAE = $696**
+**Automated Baseline Pricing for Jewelry Retail Using Multiple Linear Regression| R² = 0.928, MAE = $696**
 
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 
 *Simpson's Paradox in diamond color grading: univariate analysis (left) incorrectly suggests worse color (more yellowed) commands premium prices, but 
 controlling for carat weight (right) reveals the expected pattern — less yellowed diamonds command highest prices within each size category.*
 
-## 📊 Project Overview
+## Project Overview
 
 This project develops an automated diamond pricing model using multiple linear regression to provide baseline price estimates for jewelry retailers. The model achieves **R² = 0.928** with **MAE = $696** (18% of mean price) across 53,921 diamonds, enabling significant reduction in manual pricing workload while maintaining accuracy within business tolerances.
 
