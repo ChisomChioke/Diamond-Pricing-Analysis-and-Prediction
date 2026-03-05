@@ -50,7 +50,9 @@ Retailers need scalable automation that maintains interpretability for stakehold
 ## Data Overview
 
 **Dataset:** [Kaggle Diamonds Dataset](https://www.kaggle.com/datasets/shivam2503/diamonds)
+
 **Coverage:** 53,921 diamonds | 10 features (carat, cut, color, clarity, dimensions, price)
+
 **After cleaning:** 53,921 valid records (removed 20 with impossible zero dimensions)
 
 ### Key Features:
