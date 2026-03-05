@@ -169,9 +169,9 @@ Segmentation analysis reveals optimal automation zones:
 | **Price Range** | **Test Count** | **MAE ($)** | **MAPE ($)**| **Recommendation**|
 |---------    |--------    |------------- |---------| --------- |
 | <$1K        |   2,943 (27%)    |    278      |   38.3%     |   Expert review (Clipping effects) |
-| $1K — 2.5K  |  2,539 (24%)     |   532       |  33.5%      |  Acceptable for baseline pricing (Moderation automation) |
-| $2.5K — 5K  |   2,405 (22%)    |   752       |  21.1%      |  Good performance (Automate) |
-| $5K — 10K   |   1,906 (18%)    |   824       |  12.2%      |  Automate (optimal zone) |
+| $1K – 2.5K  |  2,539 (24%)     |   532       |  33.5%      |  Acceptable for baseline pricing (Moderation automation) |
+| $2.5K – 5K  |   2,405 (22%)    |   752       |  21.1%      |  Good performance (Automate) |
+| $5K – 10K   |   1,906 (18%)    |   824       |  12.2%      |  Automate (optimal zone) |
 | >$10K       |   992 (9%)       |   1,979     |  14.0%      |  Expert review (High absolute error) |
 
 ```
