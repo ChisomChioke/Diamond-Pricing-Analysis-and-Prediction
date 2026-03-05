@@ -236,23 +236,23 @@ The model successfully balances **92.8% accuracy** with **interpretable coeffici
 **5. Clipping Artifacts:** 14.4% of predictions required clipping, particularly affecting <$1K segment (MAPE = 38.3%). Manual review appropriate for these edge cases.
 
 #### Future Enhancements:
-**1. Advanced Modeling:**
+**1. Advanced Modeling**
 - Polynomial features (carat²) to capture nonlinear size-value relationship
 - Interaction terms (carat × clarity, cut × color) for premium combinations
 - Benchmark against tree-based methods (Random Forest, XGBoost) to quantify accuracy-interpretability trade-off
 
-**2. Additional Features:**
+**2. Additional Features**
 - Polish and symmetry ratings (subtle quality factors affecting premium stones)
 - Temporal features to capture seasonal fluctuations
 - More training samples for rare combinations (large + high-quality)
 
-**3. Production Infrastructure:**
+**3. Production Infrastructure**
 - Web-based pricing application (Streamlit/Flask)
 - Confidence intervals to flag uncertain predictions
 - Monitoring dashboards to track accuracy and trigger retraining
 - A/B testing framework to validate pricing recommendations
 
-**4. Model Segmentation:**
+**4. Model Segmentation**
 - Separate models for different size ranges to optimize accuracy at extremes
 - Expert override system with feedback loop for continuous improvement
 
