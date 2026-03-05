@@ -197,8 +197,11 @@ This project demonstrates how **rigorous exploratory analysis uncovers hidden pa
 The analysis shows how **statistical models create measurable operational value** when:
 
 **1. Diagnostic rigor prevents flawed assumptions:** Questioning counterintuitive patterns revealed confounding that would have undermined any automated rule
+
 **2. Transparent models maintain stakeholder trust:** Interpretable coefficients enable pricing justification and regulatory compliance
+
 **3. Performance segmentation guides deployment:** Understanding where models work (40% automation zone) vs. where expert judgment adds value (premium stones, outliers)
+
 **4. Pragmatic problem-solving prioritizes business outcomes:** Clipping strategy outperformed elegant alternatives by focusing on valid predictions over mathematical purity
 
 For jewelry retailers, the difference between naive automation and diagnostic-driven modeling represents the difference between operational chaos (mispriced inventory, eroded trust) and sustainable efficiency (expert time focused on high-value decisions, transparent pricing at scale).
@@ -208,9 +211,13 @@ For jewelry retailers, the difference between naive automation and diagnostic-dr
 This project demonstrates:
 
 **1. Domain knowledge is critical** — Discovering Simpson's Paradox required understanding gemological standards and questioning counterintuitive patterns
+
 **2. EDA reveals fundamental insights** — The confounding relationship between carat and quality was evident before modeling, highlighting value of thorough investigation
+
 **3. Simple solutions can outperform complex ones** — Predictive clipping proved more effective than log transformation
+
 **4. Production readiness requires more than accuracy** — Handling edge cases, ensuring valid outputs, and clear documentation are essential
+
 **5. Interpretability has business value** — Linear regression coefficients directly show stakeholders how each quality attribute impacts price, building trust in automated decisions
 
 The model successfully balances **92.8% accuracy** with **interpretable coefficients**, handling **85.6% of diamonds automatically** while escalating edge cases to human experts—demonstrating a complete ML workflow from EDA through production deployment.
@@ -218,11 +225,15 @@ The model successfully balances **92.8% accuracy** with **interpretable coeffici
 ## Limitations & Future Work
 #### Current Limitations
 
-1. Linearity Assumptions: Model assumes constant marginal value per carat. Residuals suggest nonlinear relationships at extremes. Log transformation degraded performance (R² = -8.3) due to error amplification.
-2. No Interaction Effects: Model treats quality features independently. Diamond buyers likely value combinations differently (e.g., flawless + colorless may command disproportionate premium).
-3. Limited Coverage at Extremes: Only 5 diamonds >4 carats in training (0.01%). Prediction confidence lower for very large stones.
-4. Static Pricing: Doesn't capture temporal trends or seasonal market fluctuations. Periodic retraining required as markets evolve.
-5. Clipping Artifacts: 14.4% of predictions required clipping, particularly affecting <$1K segment (MAPE = 38.3%). Manual review appropriate for these edge cases.
+**1. Linearity Assumptions:** Model assumes constant marginal value per carat. Residuals suggest nonlinear relationships at extremes. Log transformation degraded performance (R² = -8.3) due to error amplification.
+
+**2. No Interaction Effects:** Model treats quality features independently. Diamond buyers likely value combinations differently (e.g., flawless + colorless may command disproportionate premium).
+
+**3. Limited Coverage at Extremes:** Only 5 diamonds >4 carats in training (0.01%). Prediction confidence lower for very large stones.
+
+**4. Static Pricing:** Doesn't capture temporal trends or seasonal market fluctuations. Periodic retraining required as markets evolve.
+
+**5. Clipping Artifacts:** 14.4% of predictions required clipping, particularly affecting <$1K segment (MAPE = 38.3%). Manual review appropriate for these edge cases.
 
 #### Future Enhancements
 **1. Advanced Modeling:**
