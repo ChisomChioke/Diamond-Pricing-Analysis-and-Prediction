@@ -162,6 +162,18 @@ _Figure 2: Tight clustering around perfect prediction line (R² = 0.928, MAE = $
 ![Residual Diagnostics](images/residual_diagnostics.png)
 _Figure 3: Residual diagnostics confirm model validity: (1) Random scatter around zero = linearity satisfied, (2) Q-Q plot shows approximately normal residuals, (3) Mild heteroscedasticity at higher prices—acceptable for production, (4) Residuals centered at $0 with no systematic bias._
 
+## 5. Performance Varies by Price Segment
+
+Segmentation analysis reveals optimal automation zones:
+
+| **Price Range** | **Test Count** | **MAE ($)** | **MAPE ($)**| **Recommendation**|
+|---------    |--------    |------------- |---------|
+<$1K           2,943 (27%)        278         38.3%        Expert review (Clipping effects)
+$1K — 2.5K     2,539 (24%)        532         33.5%        Acceptable for baseline pricing (Moderation automation)
+$2.5K — 5K     2,405 (22%)        752         21.1%        Good performance (Automate)
+$5K — 10K      1,906 (18%)        824         12.2%        Automate (optimal zone)
+>$10K          992 (9%)           1,979       14.0%        Expert review (High absolute error)
+
 ```
 Overall Metrics:
 ├── R² (Test): 0.928
@@ -234,80 +246,6 @@ Full Model (All Features):
 # Evaluation by price range reveals optimal performance zones
 $2.5K-10K segment: 40% of test set, MAPE consistently below 22%
 → Ideal range for automated pricing
-```
-
----
-
-## 📁 Project Structure
-```
-diamond-pricing-model/
-├── data/
-│   └── diamonds.csv                 # Raw dataset (53,940 records)
-├── notebooks/
-│   └── diamond_analysis.ipynb       # Complete analysis workflow
-├── images/
-│   ├── simpsons_paradox.png         # Key visualization
-│   ├── residual_diagnostics.png     # Model validation
-│   └── predicted_vs_actual.png      # Performance visualization
-├── src/
-│   ├── data_preprocessing.py        # Data cleaning and feature engineering
-│   ├── eda.py                       # Exploratory data analysis functions
-│   ├── modeling.py                  # Model training and evaluation
-│   └── visualization.py             # Plotting functions
-├── requirements.txt                 # Python dependencies
-├── README.md                        # This file
-└── LICENSE                          # MIT License
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-```bash
-Python 3.8+
-pip install -r requirements.txt
-```
-
-### Installation
-```bash
-# Clone repository
-git clone https://github.com/yourusername/diamond-pricing-model.git
-cd diamond-pricing-model
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Launch Jupyter notebook
-jupyter notebook notebooks/diamond_analysis.ipynb
-```
-
-### Quick Start
-```python
-import pandas as pd
-from src.modeling import train_diamond_model, predict_price
-
-# Load data
-df = pd.read_csv('data/diamonds.csv')
-
-# Train model
-model, metrics = train_diamond_model(df)
-
-# Make prediction
-sample = {
-    'carat': 1.0,
-    'cut': 'Ideal',
-    'color': 'E',
-    'clarity': 'VS1',
-    'depth': 61.5,
-    'table': 57.0,
-    'x': 6.43,
-    'y': 6.47,
-    'z': 3.97
-}
-
-predicted_price = predict_price(model, sample)
-print(f"Estimated Price: ${predicted_price:,.2f}")
 ```
 
 ---
@@ -437,74 +375,3 @@ but are secondary to weight in determining base price.
 10. **Confidence Intervals**: Provide prediction ranges (e.g., ±10%) alongside point estimates
 11. **Monitoring Dashboard**: Track accuracy over time, detect model drift
 12. **Automated Retraining**: Quarterly updates when performance degrades or market shifts
-
----
-
-## 📖 Documentation
-
-### Detailed Analysis
-- **[Full Project Report](docs/diamond_pricing_analysis.pdf)**: Comprehensive write-up with all visualizations
-- **[Jupyter Notebook](notebooks/diamond_analysis.ipynb)**: Complete analysis workflow with code and commentary
-
-### Key Sections in Notebook
-1. **Data Loading & Exploration** (Section 1-2)
-2. **Simpson's Paradox Discovery** (Section 2.7-2.9)
-3. **Model Development** (Section 3-4)
-4. **Negative Prediction Resolution** (Section 4.5-4.6)
-5. **Model Validation** (Section 5)
-6. **Business Recommendations** (Section 6-7)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please 
-open an issue first to discuss proposed modifications.
-
-### Areas for Contribution
-- Additional feature engineering approaches
-- Alternative modeling techniques (tree-based methods, neural networks)
-- Enhanced visualizations
-- Deployment templates (Docker, Flask API)
-- Unit tests for modeling pipeline
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👤 Author
-
-**Chisom Chioke**
-- Portfolio: [Your Portfolio Link]
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: cs.chioke@gmail.com
-
----
-
-## 🙏 Acknowledgments
-
-- Dataset sourced from [Kaggle Diamonds Dataset](https://www.kaggle.com/datasets/shivam2503/diamonds)
-- Inspired by real-world challenges in jewelry retail pricing
-- Statistical methodology informed by industry best practices in regression analysis
-
----
-
-## 📞 Contact
-
-For questions, suggestions, or collaboration opportunities, please reach out via:
-- **Email**: cs.chioke@gmail.com
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub Issues**: [Project Issues Page]
-
----
-
-**⭐ If you found this project helpful, please consider giving it a star!**
-
----
-
-*Last Updated: December 2025*
