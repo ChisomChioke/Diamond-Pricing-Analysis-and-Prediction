@@ -9,7 +9,7 @@
 
 ## Automated Baseline Pricing for Jewelry Retail Using Multiple Linear Regression| R² = 0.928, MAE = $696
 
-#### Key Finding: Simpson's Paradox
+#### Major Finding: Simpson's Paradox
 ![Simpson's Paradox](images/diamond_simpsons_paradox_portfolio.png)
 
 _Simpson's Paradox in diamond color grading: univariate analysis (left) incorrectly suggests worse color (more yellowed) commands premium prices, but 
@@ -120,13 +120,42 @@ _Figure 1: Simpson's Paradox resolved. Univariate analysis (left) incorrectly su
 
 ### 2. Carat Dominates Pricing
 
-| Feature     | Impact     | Variance Interpretation |
+| **Feature**     | **Impact**     | **Variance Interpretation** |
 |---------    |--------    |----------------    |
 | **Carat alone**   | +$7,787 per carat | 85% of variance (baseline model) |
 | **Carat (full model)** | +$8,923 per carat | Coefficient increased after controlling for quality |
 | **All quality features** | Combined | +7.8% (incremental over carat-only) |
 
-### Model Performance
+**Business insight:** Size is the primary driver of price. Quality features provide premiums but are secondary to weight in determining base price.
+
+---
+
+### 3. Quality Premiums Quantified
+
+Once carat is controlled, quality attributes show expected gemological relationships:
+
+| **Feature**     | **Impact**     | **Interpretation** |
+|---------    |--------    |----------------|
+| **Clarity (IF vs I1)**   | +$5,424 | Flawless commands largest quality premium |
+| **Color (D vs J)** | +$2,308 | Colorless premium over yellow |
+| **Color (E vs D)** | -$220 | Progressive penalty structure |
+| **Cut (Ideal vs Fair)** | +$911 | Premium for ideal cut quality |
+| **Cut (Good vs Fair)** | +$643 | Quality ladder consistent |
+
+---
+
+## 4. Model Performance & Validation
+
+| **Metric**     | **Value**   |
+|---------   |-------- |
+| **R² (Test)**  | 0.928 (93% of variance explained) |
+| **MAE**        | $696 (18% of mean price) |
+| **RMSE**       | $1,052 |
+| **Overfitting Check** | Train R² (0.916) ≈ Test R² (0.915) |
+
+![Model Performance](images/predicted_vs_actual_prices.png)
+_Figure 2: Tight clustering around perfect prediction line (R² = 0.928, MAE = $696) with no systematic bias confirms model reliability across price ranges. Points distribute evenly above/below diagonal, validating production readiness._
+
 ```
 Overall Metrics:
 ├── R² (Test): 0.928
@@ -141,7 +170,7 @@ Performance by Price Range:
 ├── $5K-10K:  MAPE = 12.2% ← Optimal range
 └── >$10K:    MAPE = 14.0% (sparse training data)
 ```
-![Model Performance](images/predicted_vs_actual_prices.png)
+
 
 ---
 
